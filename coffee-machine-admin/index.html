@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="admin.module">
+<head>
+    <title>络乐咖啡机二维码分销系统</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+    <!--<meta name="full-screen" content="true" />-->
+    <!--<meta name="screen-orientation" content="portrait" />-->
+    <!--<meta name="x5-fullscreen" content="true" />-->
+    <!--<meta name="360-fullscreen" content="true" />-->
+    <!--<meta content="telephone=no" name="format-detection" />-->
+    <link rel="stylesheet" href="admin/assets/libs/bootstrap/bootstrap.min.css">
+    <!------------------manager css------------------->
+    <link rel="stylesheet" href="admin/assets/css/base.css">
+    <link rel="stylesheet" href="admin/assets/css/common.css">
+    <link rel="stylesheet" href="admin/assets/css/style.css">
+</head>
+<body>
+<div id="view_container">
+    <div ui-view="header"></div>
+    <div ui-view="main"></div>
+    <div ui-view="login"></div>
+</div>
+<!--JS libs-->
+<script src="admin/assets/libs/jquery/jquery-1.11.3.min.js"></script>
+<script src="admin/assets/libs/angular/angular.min.js"></script>
+<script src="admin/assets/libs/ng-file-upload/ng-file-upload-all.min.js"></script>
+
+<!--分页 -->
+<script src="admin/assets/libs/angular-dirPagination/dirPagination.js"></script>
+<!--<script src="//cdn.bootcss.com/angular.js/1.5.3/angular.min.js"></script>-->
+<!----------------------------- Javascript ---------------------------------->
+<script src="admin/app/admin.services.js"></script>
+<!--<script src="admin/app/admin.value.js"></script>-->
+<script src="admin/app/admin.filter.js"></script>
+<script src="admin/app/admin.directive.js"></script>
+<script src="admin/app/admin.module.js"></script>
+<script src="admin/app/admin.value.js"></script>
+
+<script src="admin/assets/libs/angular/angular-ui-router.js"></script>
+<script src="admin/assets/libs/angular/angular-md5.js"></script>
+<script src="admin/assets/libs/angular-cookies/angular-cookies.min.js"></script>
+
+
+
+<script src="admin/app/shared/header/headCtrl.js"></script>
+<script src="admin/app/components/distribution_sys/distributionSysCtrl.js"></script>
+<script src="admin/app/components/login/loginCtrl.js"></script>
+</body>
+</html>

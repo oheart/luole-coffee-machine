@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.page-btn{
+    display: inline-block;
+    width: 46px;
+    cursor: pointer;
+    color: #000;
+}
+.page-btn-long{
+    width: 60px;
+    text-align:center;
+}
+.fenye .page-btn-long{
+    width: 60px !important;
+}
+.page-btn:hover {
+    color: #FF9900;
+}
+.page-jump-input{
+
+}
+.toPageBtn{
+
+}
+.toPageNum{
+    width: 45px;
+    margin-left: 10px;
+}

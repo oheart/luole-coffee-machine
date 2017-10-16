@@ -1,0 +1,141 @@
+/* reset css  start*/
+@charset "utf-8";
+body,div,h1,h2,h3,h4,h5,h6,p,header,ul,li,dl,dt,dd,ol,nav,input,footer{ margin:0; padding:0;}
+body{ width:100%;color:#000;font-family:Arial, Helvetica, sans-serif;background:#FFF; overflow-x: hidden;}
+body,button, input, select, textarea {
+    font: 10px/1.5 Microsoft Yahei, Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+}
+html {font-size: 62.5%; width:100%;height:100%;overflow-x: hidden; -webkit-text-size-adjust:none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+ol,ul,li{ list-style:outside none none;}
+/*img{border:none;  vertical-align:middle; width:100%;}*/
+
+table { border-collapse: collapse;border-spacing: 0;}
+
+a{ text-decoration:none;}
+a:hover{ text-decoration:none;}
+:focus { outline:0; }
+
+/*去掉iPhone上的默认圆角样式*/
+input {-webkit-appearance:none; }
+input[type="submit"],input[type="reset"],input[type="button"],input{-webkit-appearance:none;}
+textarea {-webkit-appearance: none;}
+
+
+
+/*去出选中时高亮*/
+img,input,a {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+::selection { background:none;}
+::-moz-selection { background:none;}
+::-webkit-selection { background:none;}
+
+
+/*隐藏bady滚动条*/
+body::-webkit-scrollbar{
+    display: none;
+}
+/* reset css  end*/
+
+/*common css start*/
+.red-hint{
+    color: #EC2121;
+}
+.img-auto{
+    width:100%;
+    height:auto;
+}
+.clear{
+    *zoom:1;
+}
+.clear:after{
+    clear:both;
+    content:"";
+    display:block;
+}
+/*common css end*/
+
+/* style css  start*/
+#coffee-machine-container{
+
+}
+#coffee-machine-container .luole-coffee-content{
+    display:none;
+}
+#coffee-machine-container .apply-machine-container{
+    display:block;
+}
+#coffee-machine-container .nav li{
+    float:left;
+    width:50%;
+    text-align: center;
+}
+#coffee-machine-container .nav li a{
+    color:#000;
+    display: block;
+    font-size: 1.6rem;
+    padding:1.5rem 0;
+}
+.sel{
+    border-bottom:3px solid #3D8AF2;
+}
+#coffee-machine-container .luole-company-intro{
+    width:90%;
+    margin:0 auto;
+    font-size: 1.4rem;
+}
+#coffee-machine-container .luole-company-intro .luole-detail-info{
+    text-indent: 2em;
+}
+#coffee-machine-container .luole-company-intro .luole-link-info{
+    margin:15% 0 10% 0;
+}
+#coffee-machine-container .luole-company-intro .luole-company-img-part{
+    margin:5% 0;
+}
+#coffee-machine-container .luole-company-intro .luole-machine-img-part{
+    margin-bottom:5%;
+}
+#coffee-machine-container .apply-machine-from{
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.3rem;
+}
+#coffee-machine-container .apply-machine-from .apply-person-info{
+    margin-top:5%;
+}
+#coffee-machine-container .apply-machine-from .apply-person-info .apply-general-tit{
+    color: #FFF;
+    width: 9rem;
+    height: 3.2rem;
+    line-height: 3.2rem;
+    background: #3D8AF2;
+    text-align: center;
+}
+#coffee-machine-container .apply-machine-from .apply-person-info .apply-input{
+    width:100%;
+    height:3.4rem;
+    line-height:3.4rem;
+    border:1px solid #AAA;
+    padding-left: 12px;
+    box-sizing: border-box;
+    font-size:1.2rem;
+}
+#coffee-machine-container .apply-machine-from .apply-person-info  .apply-tit-field{
+    margin:10px 0;
+}
+#coffee-machine-container .apply-machine-from .apply-submit-part{
+    margin:8% auto 12%;
+}
+#coffee-machine-container .apply-machine-from .apply-submit-part .apply-submit-btn{
+    color: #FFF;
+    width: 100%;
+    padding:1rem 0;
+    background: #3D8AF2;
+    text-align: center;
+    border-radius:4px;
+}
+/* style css  end*/

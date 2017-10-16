@@ -1,0 +1,92 @@
+[
+  {
+    "name": "马悠悠",
+    "linkPhone": "15801042635",
+    "email": "2353769156",
+    "storeName": "太平洋咖啡",
+    "storeAdress":"北京市朝阳区人民路222号",
+     "storeLinkPhone": "010-258699",
+     "sweepSource":"太平洋咖啡"
+  },
+  {
+    "name": "小溪",
+    "linkPhone": "15801042635",
+    "email": "2353769156",
+    "storeName": "coffe-style",
+    "storeAdress":"北京市朝阳区人民路222号",
+    "storeLinkPhone": "010-258699",
+    "sweepSource":"coffe-style"
+  },
+  {
+    "name": "哈希森",
+    "linkPhone": "15801042635",
+    "email": "2353769156",
+    "storeName": "3w",
+    "storeAdress":"北京市朝阳区人民路222号",
+    "storeLinkPhone": "010-258699",
+    "sweepSource":"3w"
+  },
+  {
+    "name": "小北",
+    "linkPhone": "15001042635",
+    "email": "2353769156",
+    "storeName": "星巴克",
+    "storeAdress":"北京市西城区人民路1号",
+    "storeLinkPhone": "010-258699",
+    "sweepSource":"星巴克"
+  },
+  {
+    "name": "sina",
+    "linkPhone": "15101042635",
+    "email": "2353769156",
+    "storeName": "猫屎咖啡",
+    "storeAdress":"北京市中关村",
+    "storeLinkPhone": "010-258699",
+    "sweepSource":"猫屎咖啡"
+  },
+  {
+    "name": "马悠悠",
+    "linkPhone": "15801042635",
+    "email": "2353769156",
+    "storeName": "太平洋咖啡",
+    "storeAdress":"北京市朝阳区人民路222号",
+    "storeLinkPhone": "010-258699",
+    "sweepSource":"太平洋咖啡"
+  },
+  {
+    "name": "小溪",
+    "linkPhone": "15801042635",
+    "email": "2353769156",
+    "storeName": "coffe-style",
+    "storeAdress":"北京市朝阳区人民路222号",
+    "storeLinkPhone": "010-258699",
+    "sweepSource":"coffe-style"
+  },
+  {
+    "name": "哈希森",
+    "linkPhone": "15801042635",
+    "email": "2353769156",
+    "storeName": "3w",
+    "storeAdress":"北京市朝阳区人民路222号",
+    "storeLinkPhone": "010-258699",
+    "sweepSource":"3w"
+  },
+  {
+    "name": "小北",
+    "linkPhone": "15001042635",
+    "email": "2353769156",
+    "storeName": "星巴克",
+    "storeAdress":"北京市西城区人民路1号",
+    "storeLinkPhone": "010-258699",
+    "sweepSource":"星巴克"
+  },
+  {
+    "name": "sina",
+    "linkPhone": "15101042635",
+    "email": "2353769156",
+    "storeName": "猫屎咖啡",
+    "storeAdress":"北京市中关村",
+    "storeLinkPhone": "010-258699",
+    "sweepSource":"猫屎咖啡"
+  }
+]

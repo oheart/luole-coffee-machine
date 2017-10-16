@@ -1,0 +1,122 @@
+/*header*/
+.coffee-admin-hd{
+    width:100%;
+    padding:20px 20px 20px 20px;
+    background:#000;
+    color:#FFF;
+}
+.hd-sys-name{
+    font-size:18px;
+}
+.sys-exit-btn{
+    color:#d0cfcf;
+}
+.sys-exit-btn:hover{
+    color:#FFF;
+}
+/*table-list*/
+.table-list-container{
+    border:1px solid #B8B8B8;
+    text-align: center;
+}
+.coffee-list-table{
+    width:100%;
+    margin-bottom:0!important;
+}
+.coffee-list-tr{
+    background:#AAA;
+    color:#FFF;
+}
+.list-hd-th{
+    padding:10px 0;
+}
+.list-bd-td{
+    padding:6px 0;
+}
+.coffee-list-td{
+    background: #FFF;
+}
+/*search*/
+.coffee-search-input{
+    border:1px solid  #ADADAD;
+    color:#A5A5A5;
+    padding: 8px 18px 8px 18px;
+}
+.coffee-search-btn{
+    padding: 8px 34px;
+    background: #3D8AF2;
+    text-align: center;
+    color: #FFF;
+    border-radius: 3px;
+    display: inline-block;
+    margin-left: 20px;
+}
+/*tab list*/
+.distrubte-tab-btn{
+    width:154px;
+    height:42px;
+    line-height:42px;
+    text-align: center;
+    color:#FFF;
+    background: #AAA;
+    display:inline-block;
+    font-weight: bold;
+}
+.distrubte-tab-btn:hover{
+    background: #3D8AF2;
+}
+/*main*/
+.distriubte-main-container{
+    padding:13px 30px 30px 30px;
+}
+.search-list-wrapper{
+    margin:18px 0;
+}
+/*login css*/
+.coffee-login-container{
+    width:100%;
+    height:100vh;
+    background:url('../img/login_bg.png') no-repeat;
+    background-size:100% 100%;
+}
+.coffee-login-layer{
+    width: 360px;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+.login-part-hd{
+    background: #3D8AF2;
+    padding: 16px 0;
+    text-align: center;
+    color:#FFF;
+    font-size:16px;
+    font-weight: bold;
+    border-radius: 4px 4px 0 0;
+}
+.login-part-bd{
+    background: #FFF;
+    padding: 25px 30px 30px 25px;
+    text-align: center;
+    border-radius: 0 0 4px 4px;
+}
+.login-input-style{
+    width:282px;
+    height:38px;
+    line-height:38px;
+    text-align: center;
+    border:1px solid #AAA;
+    color:#AAA;
+    margin-top:20px;
+}
+.luole-login-btn{
+    width: 282px;
+    margin-top:35px;
+    padding: 8px 0;
+    background: #3D8AF2;
+    text-align: center;
+    color: #FFF;
+    border-radius: 3px;
+    display: inline-block;
+}
