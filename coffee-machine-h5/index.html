@@ -13,7 +13,7 @@
     </head>
    <body>
     <div id="coffee-machine-container">
-			<ul  class="nav clear">
+			<ul  class="nav coffee-machine-nav clear">
 				<li>
 					<a href="#" class="sel">申请咖啡机</a>
 				</li>
@@ -25,28 +25,34 @@
 				<div  class="luole-machine-img-part">
 					<img src="img/coffee_machine.jpg" class="img-auto"/>
 				</div>
-				<div class="apply-machine-from">
+				<form class="apply-machine-from"  action="/ideal/createAsk" method="post">
 					<div class="apply-person-info">
 						<h4 class="apply-general-tit">个人信息</h4>
 						<div class="each-fill-info">
 							<div class="apply-tit-field">
 								<span>姓名</span>
-								<span class="red-hint">*</span>
+								<!--<span class="red-hint">*</span>-->
 							</div>
-							<input type="text" class="apply-input"/>
+							<input type="text" id="apply-name" class="apply-input"
+								   name="userName" required/>
+							<!--<div>
+								<span class="red-hint">error</span>
+							</div>-->
 						</div>
 						<div  class="each-fill-info">
 							<div  class="apply-tit-field">
 								<span>联系电话</span>
-								<span class="red-hint">*</span>
+								<!--<span class="red-hint">*</span>-->
 							</div>
-							<input type="text" class="apply-input"/>
+							<input type="text" id="apply-link-phone" class="apply-input"
+								   name="cellPhone" required/>
 						</div>
 						<div  class="each-fill-info">
 							<div  class="apply-tit-field">
 								<span>电子邮箱</span>
 							</div>
-							<input type="text"  class="apply-input" placeholder="请输入电子邮箱"/>
+							<input type="text"  id="apply-email" class="apply-input"
+								   placeholder="请输入电子邮箱" name="mail"/>
 						</div>
 					</div>
 					<div class="apply-person-info">
@@ -54,35 +60,43 @@
 						<div class="each-fill-info">
 							<div class="apply-tit-field">
 								<span>店铺名称</span>
-								<span class="red-hint">*</span>
+								<!--<span class="red-hint">*</span>-->
 							</div>
-							<input type="text" class="apply-input"/>
+							<input type="text"  id="apply-store-name"  class="apply-input" required
+								   name="shopName"/>
 						</div>
 						<div  class="each-fill-info">
 							<div  class="apply-tit-field">
 								<span>店铺地址</span>
-								<span class="red-hint">*</span>
+								<!--<span class="red-hint">*</span>-->
 							</div>
-							<input type="text" class="apply-input"/>
+							<input type="text"  id="apply-store-address" class="apply-input" required
+								   name="address"/>
 						</div>
 						<div  class="each-fill-info">
 							<div  class="apply-tit-field">
 								<span>联系电话</span>
 							</div>
-							<input type="text"  class="apply-input"/>
+							<input type="text"  id="apply-store-link-phone" class="apply-input"
+								   name="telephone"/>
+						</div>
+						<div>
+							<input type="hidden" name="pshopId" id="pshopId"/>
+							<input type="hidden" name="pshopName" id="pshopName"/>
 						</div>
 					</div>
 					<div class="apply-submit-part">
-						<div class="apply-submit-btn">提交</div>
+						<input  class="apply-submit-btn"  id="coffee-apply-submit" type="submit" class="btn" value="提交">
+						<!--<div class="apply-submit-btn" >提交</div>-->
 					</div>
-				</div>
+				</form>
 			</div>
 			<div class="luole-coffee-content luole-company-intro">
 				<div class="luole-company-img-part">
 					<img src="img/company_bg.png" class="img-auto"/>
 				</div>
 				<div class="luole-detail-info">
-				络乐公司是一个集硬件软件开发相结合的现代化科技公司，络乐公司是一个集硬件软件开发相结合的现代化科技公司，络乐公司是一个集络乐公司是一个集硬件软件开发相结合的现代化科技公司，络乐公司是一个集硬件软件开发相结合的现代化科技公司，络乐公司是一个集。
+				络乐公司是一个集硬件软件开发相结合的现代化科技公司，始终致力于在中国咖啡文化的传播和推广，从对原料的精挑细选一丝不苟，到引进现代化的生产设备，严格的质量控制，每一个环节都渗透着这种理念！高品质的产品及服务，以及积极的工作态度使我们赢得订单也赢得了客户的信任。我们所有的努力都是为了使顾客能真正品尝和享受到一杯纯正的好的咖啡，一杯让人难以忘怀的咖啡。
 				</div>
 				<div class="luole-link-info">
 					<p>售后服务电话： 010-3245987</p>
@@ -93,6 +107,8 @@
 			</div>
 	</div>
 	<script src="http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+	<script src="http://malsup.github.com/jquery.form.js"></script>
+	<script src="https://cdn.bootcss.com/layer/3.0.3/layer.js"></script>
 	<script src="js/index.js"></script>
 	<script type="text/javascript">
 	</script>

@@ -6,11 +6,11 @@
         <div class="login-part-bd">
             <p>
                 <input type="text" placeholder="请输入账号" class="login-input-style"
-                    ng-model="login.loginObj.accountNumer"/>
+                    ng-model="login.loginObj.name" ng-keydown="login.enterLogin($event)"/>
             </p>
             <p>
                 <input type="text" placeholder="请输入密码" class="login-input-style"
-                    ng-model="login.loginObj.password"/>
+                    ng-model="login.loginObj.pwd"  ng-keydown="login.enterLogin($event)"/>
             </p>
             <span class="luole-login-btn cursor" ng-click="login.login()">登录</span>
         </div>

@@ -165,3 +165,6 @@ input[type='file']+label {font-weight: normal}
 .dbtc{
     display:table-cell;
 }
+.red-hint{
+    color: #EC2121;
+}

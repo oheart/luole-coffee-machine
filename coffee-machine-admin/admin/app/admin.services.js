@@ -2,7 +2,8 @@
  * Created by Admin on 2016/6/28.
  */
 angular.module('admin.services', [])
-    .constant('baseUrl', '/luole-coffee-machine/')
+    .constant('baseUrl', '/ideal/')
+    // .constant('baseUrl', 'http://192.168.3.106:8081/')
     .factory('req', function ($http, baseUrl) {
         var transform = function (data) {
             return $.param(data);
@@ -36,8 +37,11 @@ angular.module('admin.services', [])
     })
     .factory('loginData',function(req){
         function req_login(params,callback){
-          req.post('coffee-machine-admin/admin/app/list.json',params).success(function(resp){
-               if (callback) callback(resp);
+          req.post('login',params).success(function(resp){
+              if(resp && resp.code == '1'){
+                  if (callback) callback(resp);
+                  console.log(resp)
+              }
             });
         }
         return {

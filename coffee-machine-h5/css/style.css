@@ -17,7 +17,7 @@ a:hover{ text-decoration:none;}
 :focus { outline:0; }
 
 /*去掉iPhone上的默认圆角样式*/
-input {-webkit-appearance:none; }
+input {-webkit-appearance:none; outline:none;border:none;}
 input[type="submit"],input[type="reset"],input[type="button"],input{-webkit-appearance:none;}
 textarea {-webkit-appearance: none;}
 
@@ -27,7 +27,7 @@ textarea {-webkit-appearance: none;}
 img,input,a {
   -webkit-tap-highlight-color:rgba(0,0,0,0);
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
+  /*-webkit-user-select: none;*/
 }
 ::selection { background:none;}
 ::-moz-selection { background:none;}
@@ -56,11 +56,20 @@ body::-webkit-scrollbar{
     content:"";
     display:block;
 }
+.mt5{
+    margin-top:5px;
+}
+.coffee-nav{
+    border-bottom:1px solid #DAD9D9;
+}
 /*common css end*/
 
 /* style css  start*/
 #coffee-machine-container{
 
+}
+.coffee-machine-nav{
+    border-bottom:1px solid #DAD9D9;
 }
 #coffee-machine-container .luole-coffee-content{
     display:none;
@@ -89,6 +98,7 @@ body::-webkit-scrollbar{
 }
 #coffee-machine-container .luole-company-intro .luole-detail-info{
     text-indent: 2em;
+    font-size: 1.5rem;
 }
 #coffee-machine-container .luole-company-intro .luole-link-info{
     margin:15% 0 10% 0;
@@ -117,8 +127,8 @@ body::-webkit-scrollbar{
 }
 #coffee-machine-container .apply-machine-from .apply-person-info .apply-input{
     width:100%;
-    height:3.4rem;
-    line-height:3.4rem;
+    height:3.8rem;
+    line-height:3.8rem;
     border:1px solid #AAA;
     padding-left: 12px;
     box-sizing: border-box;
@@ -137,5 +147,7 @@ body::-webkit-scrollbar{
     background: #3D8AF2;
     text-align: center;
     border-radius:4px;
+    font-size: 1.4rem;
+    margin-top: 4%;
 }
 /* style css  end*/

@@ -1,7 +1,331 @@
 <div class="distriubte-main-container">
-    <tab-list></tab-list>
-    <div class="search-list-wrapper">
-        <search-list-part></search-list-part>
+    <div class="coffee-tab-part">
+        <span class="distrubte-tab-btn cursor" ng-class="{'sel-tab': distributionSys.selTabIndex == 1}" ng-click="distributionSys.toggleTab('1')">店铺信息</span>
+        <span class="distrubte-tab-btn  cursor" ng-class="{'sel-tab': distributionSys.selTabIndex == 2}" ng-click="distributionSys.toggleTab('2')">咖啡机申请记录</span>
+        <span class="distrubte-tab-btn cursor" ng-class="{'sel-tab': distributionSys.selTabIndex == 3}" ng-click="distributionSys.toggleTab('3')">二维码分销记录</span>
     </div>
-    <sys-table-list></sys-table-list>
+    <div class="sys-search-container">
+        <input type="text" placeholder="可搜索姓名/电话/商铺名称、地址等" class="coffee-search-input"
+               ng-keydown="distributionSys.enterSearch($event)"
+               ng-model="distributionSys.search.key"/>
+        <span class="coffee-search-btn cursor"
+              ng-click="distributionSys.search()">搜索</span>
+        <span class="coffee-search-btn cursor"
+              ng-click="distributionSys.addStore()"
+              ng-if="distributionSys.selTabIndex == 1"
+              data-toggle="modal">新增店铺</span>
+    </div>
+    <!--店铺信息-->
+    <div class="table-list-container" ng-if="distributionSys.selTabIndex == 1">
+        <div class="table-responsive">
+            <table class="coffee-list-table table">
+                <thead>
+                <tr class="coffee-list-tr">
+                    <th class="list-hd-th" style="width:10%;">姓名</th>
+                    <th class="list-hd-th" style="width:10%;">联系电话</th>
+                    <th class="list-hd-th" style="width:10%;">电子邮箱</th>
+                    <th class="list-hd-th" style="width:20%;">店铺名称</th>
+                    <th class="list-hd-th" style="width:15%;">店铺地址</th>
+                    <th class="list-hd-th" style="width:10%;">店铺联系电话</th>
+                    <th class="list-hd-th" style="width:15%;">二维码</th>
+                    <th class="list-hd-th" style="width:10%;">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                 <tr  class="coffee-list-td"
+                      dir-paginate="item in distributionSys.coffeeInfoList | itemsPerPage: 10"
+                      total-items="distributionSys.coffeeInfoList_total"
+                      current-page="distributionSys.currentPage"
+                      >
+                    <td  style="width:10%;"  class="list-bd-td wbba">{{item.userName}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">{{item.cellPhone}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">{{item.mail}}</td>
+                    <td  style="width:20%;"  class="list-bd-td  wbba">{{item.shopName}}</td>
+                    <td  style="width:15%;"  class="list-bd-td  wbba">{{item.address}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">{{item.telephone}}</td>
+                    <td  style="width:15%;"  class="list-bd-td  wbba">
+                        <img class="coffee-ewm-img cursor" ng-src="{{item.qrPath}}"
+                             ng-if="item.qrPath"  enlarge-pic/>
+                        <img ng-src="{{item.qrPath}}" class="coffee-hover-large-img cursor"
+                            style="display:none;" close-large-pic/>
+                        <span  ng-if="!item.qrPath">无</span>
+                    </td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">
+                        <a href="#">
+                            _ _
+                        </a>
+                    </td>
+                </tr>
+                 <tr ng-if="distributionSys.coffeeInfoList.length < 1">
+                     <td colspan="8">暂无数据</td>
+                 </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--分页-->
+            <div class="photo-jump-page flr">
+                <dir-pagination-controls on-page-change="distributionSys.pageChanged(newPageNumber,'shop')"
+                                         template-url="admin/assets/libs/angular-dirPagination/dirPagination.tpl.html">
+                </dir-pagination-controls>
+            </div>
+    </div>
+    <!--咖啡机申请记录-->
+    <div class="table-list-container" ng-if="distributionSys.selTabIndex == 2">
+        <div class="table-responsive">
+            <table class="coffee-list-table table">
+                <thead>
+                <tr class="coffee-list-tr">
+                    <th class="list-hd-th" style="width:10%;">姓名</th>
+                    <th class="list-hd-th" style="width:10%;">联系电话</th>
+                    <th class="list-hd-th" style="width:10%;">电子邮箱</th>
+                    <th class="list-hd-th" style="width:20%;">店铺名称</th>
+                    <th class="list-hd-th" style="width:15%;">店铺地址</th>
+                    <th class="list-hd-th" style="width:10%;">店铺联系电话</th>
+                    <th class="list-hd-th" style="width:15%;">扫码来源</th>
+                    <th class="list-hd-th" style="width:10%;">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  class="coffee-list-td"
+                     dir-paginate="item in distributionSys.askLog | itemsPerPage:10"
+                     total-items="distributionSys.askLog_total"
+                     current-page="distributionSys.askLogCurrentPage"
+                    >
+                    <td  style="width:10%;"  class="list-bd-td wbba">{{item.userName}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">{{item.cellPhone}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">{{item.mail}}</td>
+                    <td  style="width:20%;"  class="list-bd-td  wbba">{{item.shopName}}</td>
+                    <td  style="width:15%;"  class="list-bd-td  wbba">{{item.address}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">{{item.telephone}}</td>
+                    <td  style="width:15%;"  class="list-bd-td  wbba">{{item.pshopName}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">
+                        <a href="#" ng-click="distributionSys.createQR(item)">生成二维码</a>
+                    </td>
+                </tr>
+                <tr ng-if="distributionSys.askLog.length < 1">
+                    <td colspan="8">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--分页-->
+        <div class="photo-jump-page flr">
+            <dir-pagination-controls on-page-change="distributionSys.pageChanged(newPageNumber,'askLog')"
+                                     template-url="admin/assets/libs/angular-dirPagination/dirPagination.tpl.html">
+            </dir-pagination-controls>
+        </div>
+    </div>
+    <!--二维码分销记录-->
+    <div class="table-list-container" ng-if="distributionSys.selTabIndex == 3">
+        <div class="table-responsive">
+            <table class="coffee-list-table table">
+                <thead>
+                <tr class="coffee-list-tr">
+                    <th class="list-hd-th" style="width:10%;">店铺名称</th>
+                    <th class="list-hd-th" style="width:10%;">店铺地址</th>
+                    <th class="list-hd-th" style="width:10%;">店铺联系电话</th>
+                    <!--<th class="list-hd-th" style="width:20%;">咖啡机</th>-->
+                    <th class="list-hd-th" style="width:15%;">分销比例</th>
+                    <th class="list-hd-th" style="width:10%;">分销金额</th>
+                    <th class="list-hd-th" style="width:15%;">扫码店铺</th>
+                    <th class="list-hd-th" style="width:10%;">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  class="coffee-list-td"
+                     dir-paginate="item in distributionSys.sellLog | itemsPerPage: 10"
+                     total-items="distributionSys.sellLog_total"
+                     current-page="distributionSys.sellLogCurrentPage">
+                    <td  style="width:10%;"  class="list-bd-td wbba">{{item.shopName}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">{{item.address}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">{{item.telephone}}</td>
+                    <!--<td  style="width:20%;"  class="list-bd-td  wbba">-&#45;&#45;</td>-->
+                    <td  style="width:15%;"  class="list-bd-td  wbba">{{item.ratio}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">{{item.money}}</td>
+                    <td  style="width:15%;"  class="list-bd-td  wbba">{{item.childShopName}}</td>
+                    <td  style="width:10%;"  class="list-bd-td  wbba">
+                        <a href="#">
+                            - -
+                        </a>
+                    </td>
+                </tr>
+                <tr ng-if="distributionSys.sellLog.length < 1">
+                    <td colspan="8">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--分页-->
+        <div class="photo-jump-page flr">
+            <dir-pagination-controls on-page-change="distributionSys.pageChanged(newPageNumber,'selLog')"
+                                     template-url="admin/assets/libs/angular-dirPagination/dirPagination.tpl.html">
+            </dir-pagination-controls>
+        </div>
+    </div>
+
+
+
+
+    <!--添加店铺模态框-->
+    <div class="modal fade" id="add-store-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="add-store-layer">
+                    <div class="add-store-hd">
+                        新增店铺
+                    </div>
+                    <div class="add-store-bd">
+                        <div class="add-store-item clear">
+                            <div class="add-store-tit fll">
+                                <span>姓名</span>
+                                <span class="red-hint">*</span>
+                            </div>
+                            <div  class="add-store-input-box fll">
+                                <input placeholder="请输入真实姓名" class="add-store-input"
+                                       ng-model="distributionSys.add.userName"
+                                       ng-blur="distributionSys.validFormInfo($event,'姓名')"
+                                        ng-focus="distributionSys.resetFormInfo($event)"/>
+                               <!-- <div class="error-msg-wrapper clear">
+                                        <span class="red-hint">姓名不可为空</span>
+                                </div>-->
+                            </div>
+                        </div>
+                        <div class="add-store-item clear">
+                            <div class="add-store-tit fll">
+                                <span>联系电话</span>
+                                <span class="red-hint">*</span>
+                            </div>
+                            <div  class="add-store-input-box fll">
+                                <input placeholder="请输入联系电话" class="add-store-input"
+                                       ng-model="distributionSys.add.cellPhone"
+                                       ng-blur="distributionSys.validFormInfo($event,'联系电话')"
+                                       ng-focus="distributionSys.resetFormInfo($event)"/>
+                            </div>
+                        </div>
+                        <div class="add-store-item clear">
+                            <div class="add-store-tit fll">
+                                <span>电子邮箱</span>
+                                <span class="red-hint">*</span>
+                            </div>
+                            <div  class="add-store-input-box fll">
+                                <input placeholder="请输入电子邮箱" class="add-store-input"
+                                       ng-model="distributionSys.add.mail"
+                                       ng-blur="distributionSys.validFormInfo($event,'电子邮箱')"
+                                       ng-focus="distributionSys.resetFormInfo($event)"/>
+                            </div>
+                        </div>
+                        <div class="add-store-item clear">
+                            <div class="add-store-tit fll">
+                                <span>店铺名称</span>
+                                <span class="red-hint">*</span>
+                            </div>
+                            <div  class="add-store-input-box fll">
+                                <input placeholder="请输入店铺名称" class="add-store-input"
+                                       ng-model="distributionSys.add.shopName"
+                                       ng-blur="distributionSys.validFormInfo($event,'店铺名称')"
+                                       ng-focus="distributionSys.resetFormInfo($event)"/>
+                            </div>
+                        </div>
+                        <div class="add-store-item clear">
+                            <div class="add-store-tit fll">
+                                <span>店铺地址</span>
+                                <span class="red-hint">*</span>
+                            </div>
+                            <div  class="add-store-input-box fll">
+                                <input placeholder="请输入店铺地址" class="add-store-input"
+                                       ng-model="distributionSys.add.address"
+                                       ng-blur="distributionSys.validFormInfo($event,'店铺地址')"
+                                       ng-focus="distributionSys.resetFormInfo($event)"/>
+                            </div>
+                        </div>
+                        <div class="add-store-item clear">
+                            <div class="add-store-tit fll">
+                                <span>联系电话</span>
+                                <span class="red-hint">*</span>
+                            </div>
+                            <div  class="add-store-input-box fll">
+                                <input placeholder="请输入联系电话" class="add-store-input"
+                                       ng-model="distributionSys.add.telephone"
+                                       ng-blur="distributionSys.validFormInfo($event,'联系电话')"
+                                       ng-focus="distributionSys.resetFormInfo($event)"/>
+                            </div>
+                        </div>
+                        <div class="add-store-operate">
+                            <span class="add-store-btn cacel-add-store-btn cursor" ng-click="distributionSys.cancel()">取消</span>
+                            <span class="add-store-btn cursor" ng-click="distributionSys.confirmAdd()">新增</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- <div class="layer-mask-container" style="display:none;">
+        <div class="add-store-layer">
+            <div class="add-store-hd">
+                新增店铺
+            </div>
+            <div class="add-store-bd">
+                <div class="add-store-item clear">
+                    <div class="add-store-tit fll">
+                        姓名
+                    </div>
+                    <div  class="add-store-input-box fll">
+                        <input placeholder="请输入真实姓名" class="add-store-input"
+                        ng-model="distributionSys.add.userName"/>
+                    </div>
+                </div>
+                <div class="add-store-item clear">
+                    <div class="add-store-tit fll">
+                        联系电话
+                    </div>
+                    <div  class="add-store-input-box fll">
+                        <input placeholder="请输入联系电话" class="add-store-input"
+                               ng-model="distributionSys.add.cellPhone"/>
+                    </div>
+                </div>
+                <div class="add-store-item clear">
+                    <div class="add-store-tit fll">
+                        电子邮箱
+                    </div>
+                    <div  class="add-store-input-box fll">
+                        <input placeholder="请输入电子邮箱" class="add-store-input"
+                               ng-model="distributionSys.add.mail"/>
+                    </div>
+                </div>
+                <div class="add-store-item clear">
+                    <div class="add-store-tit fll">
+                        店铺名称
+                    </div>
+                    <div  class="add-store-input-box fll">
+                        <input placeholder="请输入店铺名称" class="add-store-input"
+                               ng-model="distributionSys.add.shopName"/>
+                    </div>
+                </div>
+                <div class="add-store-item clear">
+                    <div class="add-store-tit fll">
+                        店铺地址
+                    </div>
+                    <div  class="add-store-input-box fll">
+                        <input placeholder="请输入店铺地址" class="add-store-input"
+                               ng-model="distributionSys.add.address"/>
+                    </div>
+                </div>
+                <div class="add-store-item clear">
+                    <div class="add-store-tit fll">
+                        联系电话
+                    </div>
+                    <div  class="add-store-input-box fll">
+                        <input placeholder="请输入联系电话" class="add-store-input"
+                               ng-model="distributionSys.add.telephone"/>
+                    </div>
+                </div>
+                <div class="add-store-operate">
+                    <span class="add-store-btn cacel-add-store-btn cursor" ng-click="distributionSys.cancel()">取消</span>
+                    <span class="add-store-btn cursor" ng-click="distributionSys.confirmAdd()">新增</span>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
 </div>

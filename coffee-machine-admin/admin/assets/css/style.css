@@ -18,6 +18,7 @@
 .table-list-container{
     border:1px solid #B8B8B8;
     text-align: center;
+    position:relative;
 }
 .coffee-list-table{
     width:100%;
@@ -28,7 +29,8 @@
     color:#FFF;
 }
 .list-hd-th{
-    padding:10px 0;
+    padding:14px 0!important;
+    text-align: center;
 }
 .list-bd-td{
     padding:6px 0;
@@ -36,11 +38,16 @@
 .coffee-list-td{
     background: #FFF;
 }
+
 /*search*/
 .coffee-search-input{
     border:1px solid  #ADADAD;
     color:#A5A5A5;
-    padding: 8px 18px 8px 18px;
+    /*padding: 8px 18px 8px 18px;*/
+    width: 279px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
 }
 .coffee-search-btn{
     padding: 8px 34px;
@@ -65,9 +72,12 @@
 .distrubte-tab-btn:hover{
     background: #3D8AF2;
 }
+.sel-tab{
+    background: #3D8AF2;
+}
 /*main*/
 .distriubte-main-container{
-    padding:13px 30px 30px 30px;
+    padding: 26px 35px 35px 35px;
 }
 .search-list-wrapper{
     margin:18px 0;
@@ -119,4 +129,81 @@
     color: #FFF;
     border-radius: 3px;
     display: inline-block;
+}
+/*layer mask*/
+.layer-mask-container{
+    background:rgba(0,0,0,0.6);
+    height:100vh;
+    z-index:999;
+}
+/*add store*/
+.add-store-layer{
+    /*width: 530px;*/
+ /*   transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;*/
+}
+#add-store-modal{
+    margin-top:105px;
+}
+.add-store-hd{
+    background: #3D8AF2;
+    padding: 16px 0;
+    text-align: center;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px 4px 0 0;
+}
+.add-store-bd{
+    background: #FFF;
+    padding: 25px 30px 30px 25px;
+    text-align: center;
+    border-radius: 0 0 4px 4px;
+}
+.add-store-item{
+    margin-bottom:20px;
+}
+.add-store-tit{
+    width:25%;
+}
+.add-store-input-box{
+    width:75%;
+}
+.add-store-input{
+    border: 1px solid #989494;
+    color: #989494;
+    padding: 6px 0px 6px 23px;
+    width: 100%;
+}
+.add-store-btn{
+    padding: 8px 23px;
+    background: #3D8AF2;
+    text-align: center;
+    color: #FFF;
+    border-radius: 3px;
+    display: inline-block;
+    margin-left: 46px;
+}
+.cacel-add-store-btn{
+    background: #AAA;
+}
+
+.sys-search-container{
+    margin:16px 0;
+}
+.error-msg-wrapper{
+    margin-top: 6px;
+    text-align: left;
+}
+.coffee-ewm-img{
+    width:40px;
+    height:40px;
+    box-shadow: 1px 1px 4px #b9b9b9;
+}
+.coffee-hover-large-img{
+    position:absolute;
+    z-index:999;
+    box-shadow: 2px 3px 6px #BFBFBD;
 }

@@ -327,10 +327,6 @@
             });
 
             scope.setCurrent = function(num) {
-                if(!isValidPageNumber(num)){
-                    alert('请输入正确的页码');
-                    return;
-                }
                 if (paginationService.isRegistered(paginationId) && isValidPageNumber(num)) {
                     num = parseInt(num, 10);
                     paginationService.setCurrentPage(paginationId, num);

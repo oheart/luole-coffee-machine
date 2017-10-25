@@ -24,6 +24,17 @@ adminModule.config(function($stateProvider,$urlRouterProvider,$locationProvider)
             }
 
         })
+        //distribution_sys_tab
+        .state('tab', {
+            url:'/tab',
+            views:{
+                'main':{
+                    templateUrl: 'admin/app/components/distribution_sys/sys_tab.html',
+                    controller: 'sysTabCtrl as sysTab'
+                }
+            }
+
+        })
         //login
         .state('login', {
             url:'/login',
@@ -59,28 +70,17 @@ adminModule.run(function($rootScope, req, $window, $state, $cookies){
         console.log('Enter state: ' + toState.name);
     })
 });
-adminModule.factory('HttpInterceptor', ['$q', '$cookies', '$rootScope','$location', function ($q, $cookies, $rootScope, $location, $window) {
-    //重新登录前清除所有的cookie
-    function removeAllCookies(){
-        var cookies = $cookies.getAll();
-        angular.forEach(cookies, function (v, k) {
-            $cookies.remove(k);
-        });
-    }
+adminModule.factory('HttpInterceptor', ['$q', '$cookies', '$rootScope','$location','$injector', function ($q, $cookies, $rootScope, $location,$injector) {
+
     //未登录弹框提示并跳转到登录页面
     function handleLogOut() {
         $rootScope.user_online = false;
-        removeAllCookies();
-        $cookies.put('latest_hash', location.hash);
-        //$state.go('root.login');
-        // location.href = '/admin.html#/login';
-        location.href = '/manager/login';
-      /*  layer.alert('请登录', function (index) {
-            $cookies.put('latest_hash', location.hash);
-            layer.close(index);
-            location.href = '/admin.html#/login';
-            //location.reload();
-        });*/
+        console.log(location.href);
+        var goUrl = location.href + 'login';
+        $injector.get('$state').transitionTo('login');
+        console.log(goUrl);
+        localStorage.removeItem('userName');
+        localStorage.removeItem('selTabIndex')
     }
 
 
@@ -94,7 +94,7 @@ adminModule.factory('HttpInterceptor', ['$q', '$cookies', '$rootScope','$locatio
         response:      function (res) {
             //遇到掉线但接口可以返回响应的情况：判断msg内容
             if (res.status == 200) {
-                if (res.data.msg == '未登录') {
+                if (res.data.message == '请先登陆！') {
                     handleLogOut();
                 }
             }

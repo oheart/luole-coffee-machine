@@ -1,26 +1,53 @@
 angular.module("admin.directive", [])
-    // 分销系统列表
-    .directive('tabList',function(){
-        return {
-            restrict: 'E',
-            replace: true,
-            templateUrl: '/luole-coffee-machine/coffee-machine-admin/admin/app/templates/tab_list.html'
+    // 放大二维码图片
+    .directive('enlargePic',function(){
+        return{
+            restrict: "AE",
+            link: function(scope,elem){
+                elem.bind('mouseover',function($event){
+                    var img = $event.srcElement || $event.target;
+                    var resultLeft = img.parentNode.offsetLeft + img.parentNode.offsetWidth/2;
+                    var resultTop = img.parentNode.offsetTop + img.parentNode.offsetHeight/2;
+                    console.log(resultLeft)
+                    $(img).next().hide();
+                    if($(img).next().hasClass('coffee-hover-large-img')){
+                        $(img).next().show();
+                        $($(img).next())[0].style.left = resultLeft + 'px';
+                        $($(img).next())[0].style.top = resultTop + 'px';
+                    }
+                })
+                elem.bind('mouseleave',function($event){
+                    var img = $event.srcElement || $event.target;
+                    $(img).next().hide();
+                })
+            }
         }
     })
-	// 分销系统搜索部分
-    .directive('searchListPart',function(){
-        return {
-            restrict: 'E',
-            replace: true,
-            templateUrl: '/luole-coffee-machine/coffee-machine-admin/admin/app/templates/search_list.html'
+    // 关闭放大的二维码图片
+    .directive('closeLargePic',function(){
+        return{
+            restrict: "AE",
+            link: function(scope,elem){
+                elem.bind('mouseover',function($event){
+                    var largePic = $event.srcElement || $event.target;
+                    $(largePic).show();
+                })
+                elem.bind('mouseleave',function($event){
+                    var largePic = $event.srcElement || $event.target;
+                    $(largePic).hide();
+                })
+                elem.bind('click',function($event){
+                    var largePic = $event.srcElement || $event.target;
+                    $(largePic).hide();
+                })
+            }
         }
     })
-	// 分销系统列表
-	.directive('sysTableList',function(){
-		return {
-			restrict: 'E',
-            replace: true,
-			templateUrl: '/luole-coffee-machine/coffee-machine-admin/admin/app/templates/table_list.html'
-		}
-	})
+
+
+
+
+
+
+
 
